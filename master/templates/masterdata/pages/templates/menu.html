@@ -1,0 +1,77 @@
+{% load static %}
+    <!-- Navigation Menu-->
+    <ul class="navigation-menu">
+        <li class="has-submenu">
+            <a href="index.html"><i class="md md-home"></i> <span> Dashboard </span> </a>
+        </li>
+
+        <li class="has-submenu">
+            <a href="#"><i class="md md-palette "></i><span> Data </span> </a>
+            <ul class="submenu">
+                <li><a href="{% url 'data:pelanggan' %}">Pelanggan</a></li>
+                <li><a href="{% url 'data:vendor' %}">Suplier/Vendor</a></li>
+                <li><a href="{% url 'data:karyawan' %}">Karyawan</a></li>
+                <li><a href="{% url 'data:produk' %}">Produk</a></li>
+                <li><a href="{% url 'data:divisi' %}">Divisi</a></li>
+                 <li class="has-submenu"><a href="#">Data Lain</a>
+                    <ul class="submenu">
+                       <li><a href="{% url 'proses:jenisdata' %}">Jenis Data</a></li>
+                        <li><a href="{% url 'data:pekerjaan' %}">Pekerjaan</a></li>
+                        <li><a href="{% url 'data:jenjangpendidikan' %}">jenjang Pendidikan</a></li>
+                        <li><a href="{% url 'data:nonformal' %}">Pendidikan Non Formal</a></li>
+                        <li><a href="{% url 'data:pangkat' %}">Pangkat/Golongan</a></li>
+                        <li><a href="{% url 'data:jabatan' %}">Jabatan</a></li>
+                        <li><a href="{% url 'data:hubungankeluarga' %}">Hubungan Keluarga</a></li>
+                        
+                    </ul>
+                </li>
+                        
+    </ul>
+</li>
+
+        <li class="has-submenu">
+            <a href="#"><i class="md md-invert-colors-on"></i> <span> Proses </span> </a>
+            <ul class="submenu">
+                <li><a href="{% url 'proses:searchbasic' %}">Seting Dasar Pencarian</a></li>
+                <li><a href="{% url 'proses:searchsetting' %}"><i class="fa  fa-search-plus"></i>&nbsp;&nbsp;&nbsp;Pengaturan Pencarian</a></li>
+                <li><a href="{% url 'proses:dataprocess' %}">Proses Pembuatan Data</a></li>
+                <li><a href="#">Latihan</a></li>
+                <!-- <li><a href="pricing.html"> </a></li>
+                <li><a href="calendar.html">Calendar </a></li> -->
+            </ul>
+        </li>
+
+
+
+        <li class="has-submenu">
+            <a href="#"><i class="md md-redeem"></i> <span> Seting </span> </a>
+            <ul class="submenu">
+                <li><a href="#">Konversi </a></li>
+                <li><a href="#">Harga</a></li>
+                <li><a href="#">Pengguna </a></li>
+            </ul>
+        </li>
+
+        <li class="has-submenu">
+            <a href="#"><i class="md md-pages"></i><span>Manual </span> </a>
+      
+        </li>
+
+    </ul>
+ 
+            </ul>
+        </li>   
+<!--     <div class="btn-group pull-right" style="top: 15px;">
+        <button class="btn btn-primary page-title-btn dropdown-toggle waves-effect waves-light" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Settings 
+            <span class="m-l-5"><i class="fa fa-cog"></i></span>
+        </button>
+        <ul class="dropdown-menu dropdown-menu-right" role="menu">
+            <li><a href="#" class="dropdown-item">Action</a></li>
+            <li><a href="#" class="dropdown-item">Another action</a></li>
+            <li><a href="#" class="dropdown-item">Something else here</a></li>
+            <li class="dropdown-divider"></li>
+            <li><a href="#" class="dropdown-item">Separated link</a></li>
+        </ul>
+    </div>
+ -->

@@ -1,0 +1,88 @@
+{% load static %}
+
+<div class="card  card-primary"> 
+<!-- <div class="card-header">
+    <h3 class="card-title text-primary">Pendidikan Formal Terakhir</h3>
+</div> -->
+
+<div class="card-body" style="width: 100%;">            
+ 
+<div class="form-group row">
+    <div class="col-sm-0"></div>
+    <label class="col-sm-3 control-label" for="jenjang">Pendidikan Terakhir</label>
+    <div class="col-sm-9">
+        <div class="row">
+            <div class="col-sm-4">
+                <select name="jenjang" id="jenjang" class="form-control">
+                    <option value="">Jenjang</option>
+                    <option value="1">SD</option>
+                    <option value="2">SMP</option>
+                    <option value="3">SMA</option>
+                    <option value="4">Diploma 1</option>
+                    <option value="5">Diploma 2</option>
+                    <option value="6">Diploma 3</option>
+                    <option value="7">Diploma 4</option>
+                    <option value="8">Strata 1</option>
+                    <option value="9">Strata 2</option>
+                    <option value="10">Strata 3</option>
+                </select>        
+            </div>
+        
+            <div class="col-sm-6">        
+                <input type="text" class="form-control" id="almamater" name="almamater" placeholder="Nama Lembaga Pendidikan" />
+            </div>
+            <div class="col-sm-2">        
+                <select data-toggle="tooltip" title="Tahun Lulus Pendidikan" class="form-control" id="lulus" name="lulus">
+                    {% for thn in tahun %}
+                        {% if thn == sekarang %}
+                            <option value="{{thn}}" selected>{{thn}}</option>
+                        {% else %}
+                            <option value="{{thn}}">{{thn}}</option>
+                        {% endif %}
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+    </div>
+</div>
+</div> <!-- card body-->
+</div> <!-- card -->
+
+<div class="row">
+    <div class="col-sm-12">
+<!-- <p><b>Pendidikan no formal</b></p>
+ -->
+<div class="card card-border card-default">
+<div class="card-header">
+    <h3 class="card-title text-primary">Pendidikan Non Formal &nbsp;&nbsp;<!-- <button id="addRow" type="button" class="btn btn-success waves-effect waves-light  btn-xs" onclick="#"><i class="fa fa-plus"></i></button>
+	 -->
+	<button id="addToTable" class="btn btn-success waves-effect waves-light">Add <i class="md md-add-circle-outline"></i></button>
+    </h3>
+
+</div>
+
+<div class="card-body">             
+<div class="form-group row">
+<div class="col-sm-12">    
+    <table id="datatable-editable" class="table table-striped table-bordered nowraped" style="width: 100%;">
+        <thead>
+            <tr>
+                <th data-field="jenjang">Jenjang</th>
+                <th data-field="lembaga">Nama Lembaga</th>
+                <th data-field="tahun">Tahun</th>
+                <th >Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+
+        </tbody>
+    </table>
+</div>
+</div>
+</div>
+</div>
+
+
+</div><!-- body -->
+</div><!-- card informal -->

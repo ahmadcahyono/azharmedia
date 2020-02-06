@@ -1,0 +1,129 @@
+<!-- style="display: block; padding-right: 17px;"  -->
+<script type="text/javascript">
+    function AmbilData(a,b){
+        alert(a + ' dan dipilih ' + b);
+    }
+</script>
+
+<div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-modal="true">
+    <div class="modal-dialog"> 
+        <div class="modal-content"> 
+            <div class="modal-header">
+                <h4 class="modal-title mt-0">Modal Content is Responsive</h4> 
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">×</span>
+                </button>
+            </div> 
+            <div class="modal-body"> 
+                <div class="row"> 
+                    <div class="col-md-12"> 
+                        <div class="form-group"> 
+                            <label for="jenis" class="control-label">Pilih tabel</label> 
+                            <select id="jenisdata"class="form-control" onchange="javascript:fListtable(this)">
+                                {% for nama_jd in jenisdata  %}
+                                    <option value="">{{nama_jd.nama_jd}}</option>
+
+                                {% endfor  %}
+                            </select>
+                            <script type="text/javascript">
+                                function fListtable(a){
+                                   var mydata = $('#jenisdata :selected').text();
+                                    $.ajax({
+                                        type: "POST",
+                                        data: {'asing' : mydata },
+                                        
+                                        url : {% url 'gantitabel' %},
+                                        
+                                        
+                                        success: function (response) {
+                                            // alert('Pokayoke');
+                                            var hasil = new Object();
+                                            var jumlah = 0;
+                                            hasil = response;
+                                            var mymodel = '';
+                                            jumlah = hasil.length;
+                                            
+                                            if(jumlah>0){
+                                                mymodel = hasil[0].model;
+                                            }else{
+                                                mymodel = '';
+                                            } 
+                                            if(mymodel!=''){
+                                                $('#mytabel > tbody').html('');
+                                                
+                                                for(i=0;i<jumlah;i++){
+                                                    var myid = hasil[i].pk;
+
+                                                    if(mymodel.indexOf('pelanggan')){
+                                                    var myname = hasil[i].fields.nama_pelanggan;
+                                                }else{
+                                                    
+                                                }
+
+                                                    $('#mytabel').append( 
+                                                        '<tr>            <td>'+ myid  +'</td><td>' + myname+ '</td><td>              <a href="#" class="btn btn-secondary waves-effect" onclick="AmbilData(' + myid + ',\'' + myname + '\')">pilih</a></td></tr>' );                                                }                                                }else{
+                                                alert('amsyong')
+                                            }
+                                    
+                                        },
+                                        error: function(jqXHR, textStatus, errorThrown) {
+                                                alert("Dagano");
+                                        }
+
+                                    });
+                                    
+                                }
+
+
+
+
+                            </script>
+
+
+                             
+                        </div> 
+                    </div> 
+                </div>
+               <div class="row">
+                     <div class="col-md-12">
+                        <table id="mytabel" class="table table-responsive" style="width: 100%;">
+                            <thead>
+                                <tr>
+                                    <th width="75">No</th>
+                                    <th width="200">Data</th>
+                                    <th width="300">Keterangan</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>Kas Data</td>
+                                    <td>Mocha Datas</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>Karanka</td>
+                                    <td>Karanka Datas</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>Edi John</td>
+                                    <td>Edi Datas</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                     </div>
+               </div>  
+            </div> 
+        <div class="modal-footer"> 
+            <button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal">Close</button> 
+            <button type="button" class="btn btn-info waves-effect waves-light">Save changes</button> 
+        </div> 
+    </div> 
+    </div>
+</div>
+
+
+
+<!-- 
+="AmbilData(' + hasil[i].pk + ', ' + hasil[i].fields.nama_pelanggan +  -->

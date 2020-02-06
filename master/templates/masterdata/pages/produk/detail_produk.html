@@ -1,0 +1,74 @@
+
+<!-- Page-Title -->
+<div class="row">
+    <div class="col-sm-12">
+        <div class="card card-border card-info">
+            <div class="card-header"> 
+            <!--     <h3 class="card-title text-info">Card Info</h3>  -->
+            </div>
+            
+            <div class="card-body">
+                <form>
+                {% csrf_token %}
+                    <div class="row">
+                        <div class="col col-sm-12">
+                            <div class="form-group">
+                                <label class="text-dark"  for="kata">Kalimat atau kata untuk pencarian</label>
+                                <input type="text" class="form-control" id="kata" placeholder="Kata atau Kalimat" name="kata">
+                            </div>
+                        </div>
+                        <!-- 
+                        <div class="col col-sm-6">
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Password</label>
+                                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                            </div>
+                        </div> -->
+
+                    </div>
+                            
+                    <div class="row">
+                        <div class="col col-sm-6">
+                            <div class="form-group">
+                                <div class="checkbox checkbox-primary">
+                                    <input id="checkbox1" type="checkbox" onchange="javascript:tampilkan()">
+                                        <label for="checkbox1">
+                                            Pemenggalan kalimat
+                                        </label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <script type="text/javascript">
+                            function tampilkan(){
+                                var checkboxs = document.getElementById('checkbox1');
+                                var tambahan = document.getElementById('tambahan');
+                                if(checkboxs.checked){
+                                    $('#tambahan').css({display:'block'});
+                                }else{
+                                    $('#tambahan').css({display :'none'});
+                                }     
+                            }
+                        </script>
+
+                    </div>
+
+                    <div class="row" id="tambahan" style="display: none;">
+                        <div class="col col-sm-12">
+                            <div class="card card-border">
+                                <div class="card-body">
+                                    dfdfdfdf       
+                                </div>
+                            </div>
+                        </div>
+                    
+                    </div>
+
+                    <button type="submit" class="btn btn-purple waves-effect waves-light">Submit</button>
+                </form>
+                <!-- end row 1 -->
+            </div><!--card body -->
+        </div>
+    </div>
+</div> <!-- End Row -->
+

@@ -1,0 +1,26 @@
+<script type="text/javascript">
+$('#table1').dataTable({
+            destroy: true,
+            scrollX: true,
+            searching: true,
+            lengthChange: true,
+            pageLength: 5,
+            lengthMenu: [5, 10, 25, 50, 100],
+            paging: true,
+            pagingType: "simple_numbers" ,
+            info: true,
+            autoWidth: false,
+            columnDefs:[    { "defaultContent" : "", "searchable" : true, "className" : "text-left", "targets" : 0},
+                            { "defaultContent" : "", "searchable" : true, "className" : "text-left", "targets" : 1},
+                            { "defaultContent" : "", "searchable" : true, "className" : "text-left", "targets" : 2},
+                            { "defaultContent" : "", "searchable" : true, "className" : "text-right", "targets" : 3},
+                            { "defaultContent" : "", "searchable" : true, "className" : "text-left", "targets" : 4},
+                            { "defaultContent" : "", "searchable" : true, "className" : "text-center", "targets" :5},
+                            { "defaultContent" : "", "searchable" : true, "className" : "text-left", "targets" : 6},
+                            { "defaultContent" : "", "searchable" : true, "className" : "text-left", "targets" : 7},
+                            { "defaultContent" : "", "searchable" : true, "className" : "text-left", "targets" : 8}],
+            select:true ,
+            columns: [{"data":"id"},{"data":"name"},{"data":"lastName"},{"data":"age"},{"data":"birthDate"},{"data":"isVIP"},{"data":"gender"},{"data":"title"},{"data":"email"}]
+});
+
+</script>

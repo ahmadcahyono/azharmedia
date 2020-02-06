@@ -1,0 +1,160 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="description" content="A fully featured admin theme which can be used to build CRM, CMS, etc.">
+        <meta name="author" content="Coderthemes">
+
+        <link rel="shortcut icon" href="{% static 'assets/images/favicon_1.ico' %}">
+
+        <title>Moltran - Responsive Bootstrap 4 Admin Dashboard Template</title>
+
+        <!--Form Wizard-->
+        <link rel="shortcut icon" href="{% static 'assets/images/favicon_1.ico' %}">
+                
+
+        <link rel="stylesheet" type="text/css" href="{% static '/plugins/jquery-steps/jquery.steps.css' %}">
+        <link href="{% static 'assets/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css" />
+        <link href="{% static 'assets/css/icons.css' %}" rel="stylesheet" type="text/css" />
+        <link href="{% static 'assets/css/style.css' %}" rel="stylesheet" type="text/css" />
+        <link href="{% static 'plugins/sweetalert2/sweetalert2.css' %}" rel="stylesheet" type="text/css" />
+
+
+
+        <script src="{% static 'assets/js/modernizr.min.js' %}"></script>
+    </head>
+ 
+
+    <body>
+
+        <!-- Navigation Bar-->
+        <header id="topnav">
+            <div class="topbar-main  navbar m-b-0 b-0">
+                <div class="container-fluid">
+                    
+                        {% include 'masterdata/pages/templates/topbar.html' %}
+                    </div>
+                </div>
+            </div>
+
+            <div class="navbar-custom">
+                <div class="container-fluid">
+                    <div id="navigation">
+                        <!-- Navigation Menu-->
+                        {% include 'masterdata/pages/templates/menu.html' %}
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- End Navigation Bar-->
+
+
+        <div class="wrapper">
+            <div class="container-fluid">
+                <!-- Basic Form Wizard -->
+                <div class="row">
+                    <div class="col-md-12">
+                        {%block content%}
+                        {% endblock %}
+                    </div> <!-- end col -->
+
+                </div> <!-- End row -->
+
+            </div>
+            <!-- end container-fluid -->
+
+            <!-- Footer -->
+            <footer class="footer">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="copyright pull-none">
+                                2016 - 2018 © Moltran.
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <ul class="float-right list-inline m-b-0 pull-none">
+                                <li class="list-inline-item">
+                                    <a href="#">About</a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a href="#">Help</a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a href="#">Contact</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+            <!-- End Footer -->
+
+            
+
+        </div>
+        <!-- end wrapper -->
+
+
+
+        <!-- jQuery  -->
+        <script src="{% static 'assets/js/jquery.min.js' %}"></script>
+        <script src="{% static 'assets/js/bootstrap.bundle.min.js' %}"></script>
+        <script src="{% static 'assets/js/detect.js' %}"></script>
+        <script src="{% static 'assets/js/fastclick.js' %}"></script>
+        <script src="{% static 'assets/js/jquery.blockUI.js' %}"></script>
+        <script src="{% static 'assets/js/waves.js' %}"></script>
+        <script src="{% static 'assets/js/wow.min.js' %}"></script>
+        <script src="{% static 'assets/js/jquery.nicescroll.js' %}"></script>
+        <script src="{% static 'assets/js/jquery.scrollTo.min.js' %}"></script>
+
+        <script src="{% static 'plugins/sweetalert2/sweetalert2.min.js' %}"></script>
+
+        <!--Form Validation-->
+        <script src="{% static 'plugins/bootstrapvalidator/dist/js/bootstrapValidator.js' %}"></script>
+
+        <!--Form Wizard-->
+        <script src="{% static 'plugins/jquery-steps/jquery.steps.min.js' %}"></script>
+        <script src="{% static 'plugins/jquery-validation/dist/jquery.validate.min.js' %}"></script>
+
+        <!--wizard initialization-->
+        <script src="{% static 'assets/pages/jquery.wizard-init.js' %}"></script>
+
+
+         <!-- Datatables-->
+        <!-- Required datatable js-->
+        <script src="{% static 'plugins/datatables/jquery.dataTables.min.js' %}"></script>
+        <script src="{% static 'plugins/datatables/dataTables.bootstrap4.min.js' %}"></script>
+        <!-- Buttons examples -->
+        <script src="{% static 'plugins/datatables/dataTables.buttons.min.js' %}"></script>
+        <script src="{% static 'plugins/datatables/buttons.bootstrap4.min.js' %}"></script>
+        
+        <script src="{% static 'plugins/datatables/jszip.min.js' %}"></script>
+        <script src="{% static 'plugins/datatables/pdfmake.min.js' %}"></script>
+        <script src="{% static 'plugins/datatables/vfs_fonts.js' %}"></script>
+        <script src="{% static 'plugins/datatables/buttons.html5.min.js' %}"></script>
+        <script src="{% static 'plugins/datatables/buttons.print.min.js' %}"></script>
+        <script src="{% static 'plugins/datatables/dataTables.fixedHeader.min.js' %}"></script>
+        <script src="{% static 'plugins/datatables/dataTables.keyTable.min.js' %}"></script>
+        <script src="{% static 'plugins/datatables/dataTables.scroller.min.js' %}"></script>
+
+        <!-- Responsive examples -->
+        <script src="{% static 'plugins/datatables/dataTables.responsive.min.js' %}"></script>
+        <script src="{% static 'plugins/datatables/responsive.bootstrap4.min.js' %}"></script>
+
+
+        <!-- App js -->
+        <script src="{% static 'assets/js/jquery.app.js' %}"></script>
+
+
+
+
+      
+
+    </body>
+
+</html>

@@ -1,0 +1,27 @@
+{% extends 'excel/index.html' %}
+{% load static %}
+{%block content%}
+
+<div class="row"> 
+    <div class="col-sm-6">
+                {% include 'excel/pages/kalimat/daftar_kata.html' %}
+            </div>
+            
+            <div class="col-sm-6">
+                <div class="card card-fill">
+                    <div class="card-header"><h3 class="text-card">Setting Pencarian</h3></div>
+                    <div class="card-body">
+                        {% include 'excel/pages/kalimat/detail_kata.html' %}
+
+                    </div>
+                </div>
+            </div>
+
+    
+</div>
+
+
+
+{% endblock %}
+{%block footer %}  
+{% endblock %}

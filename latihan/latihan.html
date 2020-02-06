@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+
+
+
+</head>
+<body>
+	<div class="container">
+		<div class="header">
+			<ul class="nav">
+				<li >link 1</li>
+				<li><a id="fullscreen"  href="javascript:jaka();">link 1</a></li>
+				<li><a href="">link 2</a></li>
+				<li><a href="">link 3</a></li>
+				<li><a href="">link 4</a></li>
+			</ul>
+		</div>
+		<div class="main">
+			<h2>Judul Artikerl</h2>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci minus autem distinctio, voluptatem eligendi hic odit quis quisquam aut nihil!</p>
+		</div>
+	</div>
+
+
+	<div class="container"></div>
+
+
+<script type="text/javascript">
+
+		var pfx = ["webkit", "moz", "ms", "o", ""];
+function RunPrefixMethod(obj, method) {
+	
+	var p = 0, m, t;
+	while (p < pfx.length && !obj[m]) {
+		m = method;
+		if (pfx[p] == "") {
+			m = m.substr(0,1).toLowerCase() + m.substr(1);
+		}
+		m = pfx[p] + m;
+		t = typeof obj[m];
+		if (t != "undefined") {
+			pfx = [pfx[p]];
+			return (t == "function" ? obj[m]() : obj[m]);
+		}
+		p++;
+	}
+
+}
+
+
+		
+
+function jaka(){
+	var e = document.getElementById("fullscreen");
+	if (RunPrefixMethod(document, "FullScreen") || RunPrefixMethod(document, "IsFullScreen")) {
+		RunPrefixMethod(document, "CancelFullScreen");
+	}
+	else {
+		RunPrefixMethod(e, "RequestFullScreen");
+	}
+}
+
+
+
+
+</script>
+
+</body>
+</html>

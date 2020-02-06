@@ -1,0 +1,56 @@
+{% load static %}
+ <!-- LOGO -->
+ <div class="topbar-left">
+    <a href="#" class="logo"><i class="md md-terrain"></i> <span>Mulyo Tronik </span></a>
+</div>
+<!-- End Logo container-->
+
+<div class="menu-extras">
+
+    <ul class="nav navbar-right float-right list-inline">
+        
+        <li class="dropdown open user-box">
+
+            <a href="" class="dropdown-toggle waves-effect waves-light profile " data-toggle="dropdown" aria-expanded="true">
+                <img src="{% static 'images/users/avatar-1.jpg' %}" alt="user-img" class="rounded-circle user-img">
+                    <div class="user-status away"><i class="zmdi zmdi-dot-circle"></i>
+
+                    </div>
+
+
+            <!-- <a href="#" class="dropdown-toggle waves-effect waves-light profile " data-toggle="dropdown" aria-expanded="true">
+                <img src="{% static 'images/users/avatar-1.jpg' %}" alt="user-img" class="rounded-circle user-img"> 
+                <div class="user-status away"><i class="zmdi zmdi-dot-circle"></i></div> -->
+            </a>
+
+            {% if user.is_authenticated %}
+            <ul class="dropdown-menu">
+                <li><a href="#" class="dropdown-item"><i class="md md-face-unlock mr-2"></i> Profile</a></li>
+                <li><a href="#" class="dropdown-item" ><i class="md md-settings mr-2"></i> Settings</a></li>
+                <li><a href="/lockscr/" class="dropdown-item"><i class="md md-lock mr-2"></i> Lock screen</a></li>
+                <li><a href="/logout/" class="dropdown-item"><i class="md md-settings-power mr-2"></i> Logout</a></li>
+            </ul>
+            {% else %}
+            <ul class="dropdown-menu">
+                <li><a href="{% url 'login' %}" class="dropdown-item"><i class="md md-face-unlock mr-2"></i> Login</a></li>
+                <li><a href="/register/" class="dropdown-item" ><i class="md md-settings mr-2"></i> Daftar</a></li>
+            </ul>
+            {% endif %}
+        </li>
+    </ul>
+
+            
+    <div class="menu-item">
+        <!-- Mobile menu toggle-->
+        <a class="navbar-toggle">
+            <div class="lines">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </a>
+                <!-- End mobile menu toggle-->
+    </div>
+</div>
+
+

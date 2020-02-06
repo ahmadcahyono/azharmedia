@@ -1,0 +1,62 @@
+{% extends 'excel/index.html' %}
+{% load static %}
+{%block content%}
+
+<div class="row"> 
+    <div class="col-xl-8">
+       
+
+                {% include 'excel/pages/jenisdata/daftar_jenisdata.html' %}
+    </div>
+            
+    <div class="col-sm-4">
+              
+        <form class="form" method="POST">
+        {% csrf_token %}
+
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-body">
+                        {% for form in form_d %}
+                                    {% if form.errors %}
+                                        <div class="alert alert-danger alert-dismissible fade show">
+                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                             <span aria-hidden="true">×</span>
+                                            </button>Kesalahan Pada saat input data
+                                            <a href="#" class="alert-link"></a>
+                                            </div>
+                                    {% endif %}    
+
+                                    
+                                         <div class="form-group">
+                                            <label class="text-dark">{{form.label}}
+                                            </label>    
+                                            {{form}}
+                                            <!-- <label class="error" for="{{form.label}}"> -->{{form.errors.0}}<!-- </label> -->
+                                            
+                                        </div>
+
+                                    
+                                {% endfor %}
+                                </div>
+                                
+                                <div class="card-footer">
+                                    <button type="submit" class="btn btn-success float-right">Simpan</button>
+                                </div>  
+
+
+                            </div>  
+                            
+                        </div>
+                    </div>
+
+                </form>
+ </div>
+</div>
+
+
+
+{% endblock %}
+{%block footer %}  
+{% endblock %}

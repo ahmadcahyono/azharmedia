@@ -1,0 +1,100 @@
+<!-- Page-Title -->
+<div class="row nicescroll" tabindex="1" style="height: 340px;" >
+    <div class="col-sm-12" >
+        <form>
+        {% csrf_token %}
+
+            <div class="row">
+                <div class="col col-sm-6">
+                    <div class="form-group">
+                        <label for="idkaryawan">Id Karyawan</label>
+                        <input type="text" class="form-control" id="idkaryawan" placeholder="ID Karyawan" name="idkaryawan">
+                    </div>
+                </div>
+
+                <div class="col col-sm-6">
+                    <div class="form-group">
+                        <label for="nik">Nomer Induk Karyawan (NIK)</label>
+                        <input type="text" class="form-control" id="nik" placeholder="Nomer Induk Karyawan" name="nik">
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col col-sm-6">
+                    <div class="form-group">
+                        <label for="namadepan">Nama Depan</label>
+                        <input type="text" class="form-control" id="namadepan" placeholder="Nama Depan" name="namadepan">
+                    </div>
+                </div>
+                 
+                <div class="col col-sm-6">
+                    <div class="form-group">
+                        <label for="namabelakang">Nama Belakang</label>
+                        <input type="text" class="form-control" name="namabelakang" placeholder="Nama Belakang">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col col-sm-12">
+                    <div class="form-group">
+                        <label for="alamat">Alamat Lengkap</label>
+                        <textarea type="text" class="form-control" name="alamat" placeholder="Alamat Lengkap" row="2"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col col-sm-6">
+                    <div class="form-group">
+                        <label for="status">Status</label>
+                        <input type="text" class="form-control" id="status" placeholder="Status Perkawinan" name="status">
+                    </div>
+                </div>
+                 
+                <div class="col col-sm-6">
+                    <div class="form-group">
+                        <label for="jenis">Jenis Kelamin</label>
+                        <input type="text" class="form-control" name="jenis" placeholder="Jenis Kelamin">
+                    </div>
+                </div>
+            </div>
+                  
+            <div class="row">
+                <div class="col col-sm-6">
+                    <div class="form-group">
+                        <label for="jabatan">Jabatan</label>
+                        <input type="text" class="form-control" name="jabatan" placeholder="Jabatan">
+                    </div>
+                </div>
+                 
+                <div class="col col-sm-6">
+                    <div class="form-group">
+                        <label for="tmt">TMT</label>
+                        <input type="text" class="form-control" id="tmt" placeholder="TMT tugas" name="tmt">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col col-sm-6">
+                    <div class="form-group">
+                        <label for="telp">Telepon</label>
+                        <input type="text" class="form-control" id="telp" placeholder="Telephon" name="telp">
+                    </div>
+                </div>
+                 
+                <div class="col col-sm-6">
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" name="email" placeholder="email">
+                    </div>
+                </div>
+            </div>  
+            <button type="submit" class="btn btn-purple waves-effect waves-light" name="submit">Submit</button>
+        </form>
+    </div>
+</div> <!-- End Row -->
+

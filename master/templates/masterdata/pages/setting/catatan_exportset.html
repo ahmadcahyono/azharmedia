@@ -1,0 +1,57 @@
+<!-- Page-Title -->
+<div class="row">
+    <div class="col-lg-12">
+        <form>
+        {% csrf_token %}
+
+            <div class="row">
+                <div class="col col-lg-6">
+                    <div class="form-group">
+                        <label for="idkaryawan">Id Karyawan</label>
+                        <input type="text" class="form-control" id="idkaryawan" placeholder="ID Karyawan" name="idkaryawan">
+                    </div>
+                </div>
+
+                <div class="col col-lg-6">
+                    <div class="form-group">
+                        <label for="nik">Nomer Induk Karyawan (NIK)</label>
+                        <input type="text" class="form-control" id="nik" placeholder="Nomer Induk Karyawan" name="nik">
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col col-sm-6">
+                    <div class="form-group">
+                        <label for="kata">Nama Depan</label>
+                        <input type="text" class="form-control" id="kata" placeholder="Nama Belakang" name="namabelakang">
+                    </div>
+                </div>
+                 
+                <div class="col col-sm-6">
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Nama Belakang</label>
+                        <input type="text" class="form-control" name="namabelakang" placeholder="Nama Belakang">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col col-sm-12">
+                    <div class="form-group">
+                        <label for="alamat">Alamat Lengkap</label>
+                        <textarea type="text" class="form-control" name="alamat" placeholder="Alamat Lengkap" row="2"></textarea>
+                    </div>
+                </div>
+            </div>
+
+                    
+            <button type="submit" class="btn btn-purple waves-effect waves-light" style="text-align: right;">Submit</button>
+        </form>
+            <!-- </div> -->
+                <!-- end row 1 -->
+            <!-- </div> --><!--card body -->
+        <!-- </div> -->
+    </div>
+</div> <!-- End Row -->

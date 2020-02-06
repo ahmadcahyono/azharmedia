@@ -1,0 +1,304 @@
+
+<!-- Page-Title -->
+<form class="form-horizontal">
+                {% csrf_token %}
+
+<div class="row">
+    <div class="col-sm-10">
+
+        <div class="form-group row">
+            <label for="kata" class="col-md-5 control-label">Nama Data Ekspor</label>
+            <div class="col col-sm-7">
+                <input type="text" class="form-control" id="kata" placeholder="Kata atau Kalimat" name="kata">
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="mesin" class="col-md-5 control-label">Nama Mesin</label>
+            <div class="col col-sm-7">
+                <select class="form-control" id="mesin" name="mesin">
+                    <option>FM</option>
+                    <option>IRS</option>
+                    <option>Server</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="jumlahkolom" class="col-md-5 control-label">Jumlah Kolom</label>
+            <div class="col col-sm-7">
+                <input class="form-control" id="mesin" name="mesin">
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="jumlahkolom" class="col-md-5 control-label">Deskripsi Data Ekspor</label>
+            <div class="col col-sm-7">
+                <textarea class="form-control" id="mesin" name="mesin"></textarea>
+            </div>
+        </div>
+    </div>
+
+    <div class="col col-sm-2">
+        <button type="button" class="btn btn-block btn-success waves-effect waves-light btn-md" onclick="javascript:tambahBaris('dataTable')">Tambah</button>
+        <br><br>
+        <button type="button" class="btn btn-block btn-success waves-effect waves-light btn-md" onclick="javascript:buka();">Buka</button>
+        <script type="text/javascript">
+            function buka(){
+            
+                swal({   
+            title: "Are you sure?",   
+            text: "You will not be able to recover this imaginary file!",   
+            type: "warning",   
+            showCancelButton: true,   
+            confirmButtonColor: "#DD6B55",   
+            confirmButtonText: "Yes, delete it!",   
+            cancelButtonText: "No, cancel plx!",   
+            closeOnConfirm: true,   
+            closeOnCancel: true 
+            }, function(isConfirm){   
+            if (isConfirm) {     
+                alert('gerapak');
+            } else {     
+                alert('mak congrang'); 
+            } 
+        });
+            }
+        </script>
+        <br><br>
+        <button type="submit" class="btn btn-block btn-purple waves-effect waves-light  btn-md">Simpan</button>    
+    </div>
+
+</div>
+
+
+<div class="table-responsive">
+    <table class="table table-responsive" id="dataTable" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+        <tbody>
+
+        </tbody>
+    </table>
+
+</div>
+</form>
+
+<script language="javascript" type="text/javascript">
+        function addRow(tableID) {
+
+            var table = document.getElementById(tableID);
+
+            var rowCount = table.rows.length;
+            var row = table.insertRow(rowCount);
+
+            var colCount = table.rows[0].cells.length;
+
+            for(var i=0; i<colCount; i++) {
+
+                var newcell = row.insertCell(i);
+
+                newcell.innerHTML = table.rows[0].cells[i].innerHTML;
+                //alert(newcell.childNodes);
+                switch(newcell.childNodes[0].type) {
+                    case "text":
+                            newcell.childNodes[0].value = "";
+                            break;
+                    case "checkbox":
+                            newcell.childNodes[0].checked = false;
+                            break;
+                    case "select-one":
+                            newcell.childNodes[0].selectedIndex = 0;
+                            break;
+                }
+            }
+        }
+
+        function deleteRow(tableID) {
+            try {
+            var table = document.getElementById(tableID);
+            var rowCount = table.rows.length;
+
+            for(var i=0; i<rowCount; i++) {
+                var row = table.rows[i];
+                var chkbox = row.cells[0].childNodes[0];
+                if(null != chkbox && true == chkbox.checked) {
+                    if(rowCount <= 1) {
+                        alert("Cannot delete all the rows.");
+                        break;
+                    }
+                    table.deleteRow(i);
+                    rowCount--;
+                    i--;
+                }
+
+
+            }
+            }catch(e) {
+                alert(e);
+            }
+        }
+
+
+
+    </script>
+
+
+  <script language="javascript">
+      function tambahBaris(tableID) {
+
+           var table = document.getElementById(tableID);
+           var rowCount = table.rows.length;
+           // alert(rowCount);
+           var row = table.insertRow(rowCount);
+
+           // row.onclick = function(){
+           //      alert(row.rowIndex);
+           // }
+
+           var cell1 = row.insertCell(0);
+           var element1 = document.createElement("label");
+           // element0.className += 'checkbox';
+           // element1.type  = "text";
+           element1.className += "form-control";
+            element1.innerHTML = rowCount + 1;
+            // <span class="">35</span>
+           // element11.type = "checkbox";
+           // element11.id = "checkbox1";
+           // element11.name="chkbox";
+           // element1.appendChild(element11)
+           // element1.appendChild(element12)
+           cell1.appendChild(element1);
+           cell1.style.width = '50px';
+
+
+           var cell2 = row.insertCell(1);
+           var element2 = document.createElement("select");
+           element2.type = "";
+           element2.className += "form-control";
+           element2.name = "select[]";
+           for(var i =0; i<2;i++){
+                var option = document.createElement("option");
+                option.text = "tara" + i;
+                element2.add(option);
+           }
+           cell2.appendChild(element2);
+           cell2.style.width = '250px';
+
+
+           var cell3 = row.insertCell(2);
+           var element3 = document.createElement("input");
+           element3.type = "number";
+           element3.className += "form-control" 
+           element3.name = "txtbox[]";
+           cell3.appendChild(element3);
+           cell3.style.width = '100px';
+
+
+           var cell4 = row.insertCell(3);
+           var element4 = document.createElement("input");
+           element4.type = "text";
+           element4.className += "form-control" 
+           element4.name = "txtbox[]";
+           cell4.appendChild(element4);
+           cell4.style.width = '300px';
+
+
+          
+           
+           
+
+           var cell5 = row.insertCell(4);
+           element5 = document.createElement("button");
+           sp5 = document.createElement('span');
+           sp5.setAttribute("class", "fa fa-remove");
+           element5.type = "button";
+           
+           element5.style.width = "50px";
+           element5.className = "btn btn-icon waves-effect waves-light btn-danger m-b-5";
+           // element3.setAttribute("onclick", function() { 
+           //      alert("blabla"); 
+           //  });
+           
+
+           element5.appendChild(sp1);
+           cell5.appendChild(element5);
+           
+
+           element5.onclick = function () {
+                // var result = confirm('ingin hapus baris ke : ' + row.rowIndex);
+                //Confirmation("Hapus baris ke : " + row.rowIndex, function())
+
+               // alert('bangke');
+               // e.preventDefault();
+
+                swal.fire({   
+                    title: "Anda Yakin?",   
+                    text: "Untuk Menghapus baris ini.",   
+                    type: "warning",   
+                    showCancelButton: true,   
+                    confirmButtonColor: "#DD6B55",   
+                    confirmButtonText: "Yes, delete it!",   
+                    cancelButtonText: "No, cancel plx!",   
+                    closeOnConfirm: false,   
+                    closeOnCancel: false
+                    }).then(
+
+                    (result) => {
+                        if (result.value) {
+                            
+                            swal(
+                                'Deleted!',
+                                'Your file has been deleted.',
+                                'success'
+                            )
+                            table.deleteRow(row.rowIndex);
+                        }else{
+                                   swal(
+                                     'Cancelled',
+                                     'Your imaginary file is safe :)',
+                                         'cancel'
+                                     )
+                        }
+
+                   
+                    })                
+                
+                             
+                   
+
+
+
+
+                JSconfirm()
+
+
+            }
+      }
+
+      function JSconfirm(){
+
+      }
+
+
+      function hapusBaris(tableID) {
+        var table = document.getElementById(tableID);
+        var rowCount = table.rows.length;
+        alert(rowCount);
+        for(var i=0; i<rowCount; i++) {
+                var row = table.rows[i];
+                var chkbox = row.cells[0].childNodes[0];
+                if(null != chkbox && true == chkbox.checked) {
+                     table.deleteRow(i);
+                     rowCount--;
+                     i--;
+                }
+
+
+        }
+        
+
+    }
+
+
+ </script>
+
+

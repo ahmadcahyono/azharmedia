@@ -1,0 +1,120 @@
+{% load static %}
+<div class="row">
+  <div class="col-sm-12">
+    <div class="card  card-border"> 
+      <div class="card-header">
+        <h3 class="card-title text-primary">Karir
+        <button id="addFormal" type="button" class="btn btn-success waves-effect waves-light  btn-xs float-right" onclick="#"><i class="fa fa-plus"></i></button></h3>
+      </div>
+
+
+      <div class="card-body" style="width: 100%;">            
+          <div class="form-group row">
+            <div class="col-sm-0"></div>
+            <label class="col-sm-5 control-label" for="divisi">Divisi</label>
+            <div class="col-sm-7">
+                <input type="text" class="form-control" id="divisi" name="divisi">
+            </div>
+          </div>
+            
+        <div class="form-group row">
+            <div class="col-sm-0"></div>
+            <label class="col-sm-5 control-label" for="jabatan">Jabatan/Posisi</label>
+            <div class="col-sm-7">
+                <input type="text" class="form-control" id="jabatan" name="jabatan">
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <div class="col-sm-0"></div>
+            <label class="col-sm-5 control-label" for="perusahaank">Perusahaan</label>
+            <div class="col-sm-7">
+                <input class="form-control" id="perusahaank" name="perusahaank" data-placeholder="">
+            </div>
+          </div>
+          
+
+        <div class="form-group row">
+            <div class="col-sm-0"></div>
+            <label class="col-sm-5 control-label" for="tgl1k">Dari Tanggal</label>
+            <div class="col-sm-7">
+                <input class="form-control xdate" id="tgl1k" name="tgl1k" data-placeholder="">
+            </div>
+          </div>
+
+        <div class="form-group row">
+            <div class="col-sm-0"></div>
+            <label class="col-sm-5 control-label" for="tgl2k">Hingga Tanggal</label>
+            <div class="col-sm-7">
+                <input class="form-control xdate" id="tgl2k" name="tgl2k" data-placeholder="">
+            </div>
+          </div>
+
+        <div class="form-group row">
+            <div class="col-sm-0"></div>
+            <label class="col-sm-5 control-label" for="statusk">Status</label>
+            <div class="col-sm-5">
+                <select class="form-control" id="statusk" name="statusk" data-placeholder="">
+                    <option>Aktif</option>
+                    <option>Tidak Aktif</option>
+                </select>
+            </div>
+        </div>
+
+      </div> <!-- card body-->
+    </div> <!-- card -->
+  </div>
+</div>
+
+
+
+<div class="row">
+    <div class="col-sm-12">
+<!-- <p><b>Pendidikan no formal</b></p>
+
+
+
+ -->
+<div class="portlet">
+      <div class="portlet-heading portlet-default">
+        <h5 class="portlet-title text-dark">
+            
+        </h5>
+        <div class="portlet-widgets">
+            <a href="javascript:;" data-toggle="reload"><i class="ion-refresh"></i></a>
+            <span class="divider"></span>
+            <a data-toggle="collapse" href="#bg-default" aria-expanded="true" class=""><i class="ion-minus-round"></i></a>
+            <!--     <span class="divider"></span>
+            -->        <!-- <a href="#" data-toggle="remove"><i class="ion-close-round"></i></a> -->
+          </div>
+          <div class="clearfix"></div>
+        </div>
+        <div id="bg-default" class="panel-collapse collapse show" style="">
+        
+        <div class="portlet-body">
+                <table id="tbnonformal" class="table table-striped table-bordered nowrapped" style="width: 100%;">
+        <thead>
+            <tr>
+                <th>Status</th>
+                <th>Lembaga</th>
+                <th>Bidang</th>
+                <th>Tahun</th>
+                <th>Aksi</th>
+            </tr>
+        </thead>
+        <tbody>
+           
+
+        </tbody>
+    </table>  
+        </div>
+      </div>
+    </div>
+
+
+
+</div><!-- body -->
+</div><!-- card informal -->
+
+
+

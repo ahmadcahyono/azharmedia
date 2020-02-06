@@ -1,0 +1,288 @@
+<script type="text/javascript">
+    function AmbilData(a,b){
+        var h = document.getElementById('hasil');
+        var g = document.getElementById('grupdata');
+        var i = document.getElementById('idhasil');
+        var j = document.getElementById('jenisdata').value;
+        h.value = b;
+        i.value = a;
+        g.value = j;
+        $('#tutup').click();
+    }
+</script>
+
+<form class="form-horizontal">
+    <div class="form-group row">
+        <label class="col-md-4 control-label text-dark" for="namadata">Pencarian Untuk Data</label>
+
+        <div class="col-md-8">
+        <div class="input-group m-t-10">
+            <input type="text" id="namadata" name="namadata" class="form-control" placeholder="">
+
+            <span class="input-group-append">
+                <button type="button" class="btn btn-warning waves-effect waves-light" data-toggle="modal"  data-target="#tambahnamadata"  data-original-title="Tambah nama baru dari data"><i class="fa fa-plus"></i></button>
+                <button type="button" class="btn btn-primary waves-effect waves-light" data-toggle="modal" data-target="#listnamadata" data-original-title="Lihat daftar nama dari data"><i class="md-list"></i></button>   
+            </span>
+        </div>
+        
+
+        
+           <!--  <input type="text" class="form-control" name="namakriteria" />   -->      
+        </div>
+        
+        </div>    
+
+    <div class="form-group row">
+        <label class="col-md-4 control-label text-dark" for="katautama">Frasa atau kata kunci pencari</label>
+        <div class="col-md-8">
+
+            <input type="text" value="" id="tags" name="tags" class="form-control">
+           
+           <!--  <input type="text" id="kunciutama" class="form-control" name="katautama" />        --> 
+       
+        </div>
+
+
+
+
+        
+    </div>
+
+    <div id="satukata">
+        <div class="form-group row">
+            <label class="col-md-4 control-label text-dark" for="hasil">Hasil Pencarian</label>
+            <div class="col-md-8">
+               <div class="input-group m-t-10">
+                <input id="hasil" type="text" class="form-control" name="hasil" />
+                <input id="idhasil" type="text" class="form-control" name="idhasil" hidden="true" />
+                    <span class="input-group-append">
+                        <button type="button" class="btn btn-primary waves-effect waves-light" data-toggle="modal" data-target="#myModal" tooltips="dadaa"><i class="md-list"></i></button>        
+                    </span>
+                </div>
+            </div>
+    
+        </div>
+        
+        <div class="form-group row">
+            <label class="col-md-4 control-label text-dark" for="grupdata">Dari Data/Tabel</label>
+            <div class="col-md-8">
+                <input id="grupdata" list="mydatas" type="text" name="grupdata" class="form-control custom-select custom-select-sm" autocomplete="" ondblclick="javascript:getJdata(this)" onkeydown="pilihJdata(event)" />
+                <datalist id="mydatas">
+                    {%for jd in jenisdata %}
+                        <option>{{jd.nama_jd}}</option>
+                    {%endfor%}
+                </datalist>
+            </div>
+        </div>    
+
+        <script type="text/javascript">
+                // 
+                function pilihJdata(event){
+                    if(event.which==39 || event.keyCode == 39){
+                        var isi = document.querySelector('#grupdata').value;
+                        alert(isi);
+                    }
+                }
+            
+        </script>
+
+
+   </div>
+
+  
+            
+    
+
+    <div id="duakata" style="display: none">
+   
+
+
+
+        <div class="form-group row">
+            <label class="col-md-4 control-label text-dark" for="kataawal">Kata Awal</label>
+            <div class="col-md-8">
+                <input type="text" class="form-control" name="kataawal" />
+            </div>
+        </div>
+        
+
+        <div class="form-group row">
+            <label class="col-md-4 control-label text-dark" for="kataakhir">Kata Akhir</label>
+            <div class="col-md-8">
+                <input type="text" class="form-control" name="kataakhir" />
+                
+            </div>
+        </div>
+
+
+
+    </div>
+
+
+    <div class="form-group row">
+        <label class="col-md-4 control-label text-dark" for="tipedata">Tipe Data Keluaran</label>
+        <div class="col-md-8">
+            <select type="text" class="form-control" name="tipedata">
+                <option>hanya angka</option>
+                <option>hanya huruf</option>
+                <option>huruf dan angka</option>
+            </select>        
+        </div>
+    </div>
+
+    
+
+    <div class="form-group">
+        <div class="offset-sm-5 col-sm-6">
+            <div class="checkbox checkbox-primary">
+                <input id="jeniskriteria" type="checkbox" onclick="javascript:cek(this)">
+                <label class="text-dark" for="jeniskriteria">
+                    Pencarian diantara dua kalimat atau kata
+                </label>
+            </div>
+        </div>
+    </div>
+                    
+    <button type="submit" class="btn btn-purple waves-effect waves-light float-right">Submit</button>
+</form>
+
+{% include 'excel/pages/kriteria/modal.html' %}
+
+
+<script type="text/javascript">
+    function cek(){
+        var muncul = document.getElementById('duakata');
+        var muncul2 = document.getElementById('satukata');
+        var jenis = document.getElementById('jeniskriteria');
+        if(jenis.checked){
+            muncul.style.display = 'block';
+            muncul2.style.display = 'none';
+
+             
+        }else{
+            muncul.style.display = 'none';
+            muncul2.style.display = 'block';
+            
+        }
+    }
+
+
+
+
+</script>
+
+<script type="text/javascript">
+    window.onload = function(){
+        hasil = document.getElementById('hasil').value='';
+        grupdata = document.getElementById('grupdata').value='';
+        cek();
+        
+    }
+
+    function getJdata(){
+        var ab = document.querySelector('#grupdata');
+
+        alert(ab.value);
+    }
+
+</script>
+
+<script type="text/javascript">
+    function funchasil(){
+        var muncul = document.getElementById('nolkata');
+        var vhasil = document.getElementById('jenishasil');
+        if(vhasil.checked){
+            muncul.style.display = 'block';
+        }else{
+            muncul.style.display = 'none';
+            
+        }
+    }
+</script>
+
+
+
+
+<!-- The Modal -->
+<div class="modal" id="tambahnamadata">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Tambah grup/kelompok data baru</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="form-group row">
+                    
+                    <div class="input-group m-t-10">
+                        <input type="text" id="tambah" name="tambah" class="form-control" placeholder="">
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-primary waves-effect waves-light" tooltips=""><i class="fa fa-plus"></i></button>   
+                       </span>
+                </div>
+                    
+
+            </div>
+        </div>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+         <button type="button" class="btn btn-success" >Simpan</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+  </div>
+</div>  
+
+</div>
+
+<!-- The Modal -->
+<div class="modal" id="listnamadata">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Modal Heading</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <div class="row">
+            <div class="col-sm-12">
+               <table id="listdataname" class="table table-striped table-bordered dt-responsive nowrap dataTable no-footer dtr-inline collapsed" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Nama</th>
+                            <th>Keterangan</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+               </table>
+
+            </div>
+        </div>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+       
+     
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+         </div>
+      </div>
+
+    </div>
+  </div>
+</div>  

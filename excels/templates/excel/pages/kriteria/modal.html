@@ -1,0 +1,110 @@
+<!-- style="display: block; padding-right: 17px;"  -->
+
+
+<div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-modal="true">
+    <div class="modal-dialog"> 
+        <div class="modal-content"> 
+            <div class="modal-header">
+                <h4 class="modal-title mt-0">Modal Content is Responsive</h4> 
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">×</span>
+                </button>
+            </div> 
+            <div class="modal-body"> 
+                
+                <div class="row"> 
+                    <div class="col-md-12"> 
+                        <div class="form-group"> 
+                            <label for="jenisdata" class="control-label">Pilih tabel</label> 
+                            <select id="jenisdata" name="jenisdata" class="form-control" onchange="javascript:fListtable(this)">
+                                {% for nama_jd in jenisdata  %}
+                                    <option value="{{nama_jd.nama_jd}}">{{nama_jd.nama_jd}}</option>
+
+                                {% endfor  %}
+                            </select>
+                            <script type="text/javascript">
+                                function fListtable(a){
+                                   var mydata = $('#jenisdata :selected').text();
+                                    $.ajax({
+                                        type: "POST",
+                                        data: {'asing' : mydata },
+                                        
+                                        url : {% url 'gantitabel' %},
+                                        
+                                        
+                                        success: function (response) {
+                                            // alert('Pokayoke');
+                                            var hasil = new Object();
+                                            hasil = response;
+                                            var jumlah = 0;
+                                            
+                                            jumlah = hasil.length?hasil.length:0;
+                                            
+                                            
+                                            if(jumlah>0){
+                                                alert(jumlah);
+                                                $('#mytabel > tbody').html('');
+                                                for(i=0;i<jumlah;i++){
+                                                    myid = hasil[i][0];
+                                                    myname = hasil[i][1]
+                                                    $('#mytabel').append( 
+                                                        '<tr>            <td>'+ myid  +'</td><td>' + myname+ '</td><td>              <a href="#" class="btn btn-primary btn-xs waves-effect" onclick="AmbilData(' + myid + ',\'' + myname + '\')"><i class="fa fa-check"></i></a></td></tr>' ); 
+                                                
+                                                }
+                                            }else{
+                                                alert(jumlah);
+                                                $('#mytabel > tbody').html('');
+                                                
+                                            } 
+                                          
+                                    
+                                        },
+                                        error: function(jqXHR, textStatus, errorThrown) {
+                                                alert("Dagano");
+                                        }
+
+                                    });
+                                    
+                                }
+
+
+
+
+                            </script>
+
+
+                             
+                        </div> 
+                    </div> 
+                </div>
+
+                <div class="row">
+                     <div class="col-md-12">
+
+                        <table id="mytabel" class="table table-striped table-bordered" style="border-collapse: collapse; border-spacing: 0px; width: 100%; position: relative;">
+                            <thead>
+                                <tr>
+                                    <th>No</th>
+                                    <th>Data</th>
+                                    <th>Pilihan</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for pel in datas %}
+                                    <tr><td>{{pel.id}}</td>
+                                        <td>{{pel.nama}}</td>
+                                        <td><a href="#" onclick="AmbilData({{pel.id}},'{{pel.nama}}')" class="btn btn-primary btn-xs waves-effect waves-light"><i class="fa fa-check"></i></a></td>
+                                    </tr>
+                                {% endfor%}
+                            </tbody>
+                        </table>
+                     </div>
+               </div>  
+            </div> 
+        <div class="modal-footer"> 
+            <button id="tutup" type="button" class="btn btn-secondary waves-effect" data-dismiss="modal">Close</button> 
+            <button type="button" class="btn btn-info waves-effect waves-light">Save changes</button> 
+        </div> 
+    </div> 
+    </div>
+</div>

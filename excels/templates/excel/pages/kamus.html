@@ -1,0 +1,18 @@
+{% extends 'excel/index.html' %}
+{% load static %}
+{%block content%}
+
+<div class="row"> 
+    <div class="col-sm-7">
+        {% include 'excel/pages/kamus/kamus_list.html' %}
+    </div>
+    <div class="col-sm-5">
+        {% include 'excel/pages/kamus/kamus_detail.html' %}
+    </div>
+</div>
+
+
+
+{% endblock %}
+{%block footer %}  
+{% endblock %}

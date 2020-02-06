@@ -1,0 +1,91 @@
+{% load static %}
+<script>
+    var resizefunc = [];
+</script>
+
+<!-- jQuery  -->
+    <script src="{% static 'assets/js/jquery.min.js' %}"></script>
+    <script src="{% static 'assets/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'assets/js/detect.js' %}"></script>
+    <script src="{% static 'assets/js/fastclick.js' %}"></script>
+    <script src="{% static 'assets/js/jquery.slimscroll.js' %}"></script>
+    <script src="{% static 'assets/js/jquery.blockUI.js' %}"></script>
+    <script src="{% static 'assets/js/waves.js' %}"></script>
+    <script src="{% static 'assets/js/wow.min.js' %}"></script>
+    <script src="{% static 'assets/js/jquery.nicescroll.js' %}"></script>
+    <script src="{% static 'assets/js/jquery.scrollTo.min.js' %}"></script>
+
+
+    <script src="{% static 'plugins/magnific-popup/dist/jquery.magnific-popup.min.js' %}"></script>
+
+<!-- Datatable init js -->
+    <script src="{% static 'assets/pages/datatables.init.js' %}"></script>
+
+          <script src="{% static 'plugins/bootstrapvalidator/dist/js/bootstrapValidator.js' %}"></script>
+
+      <script src="{% static 'plugins/smartwizard/js/jquery.smartWizard.js' %}"></script>
+      
+      <script src="{% static 'plugins/jquery-steps/jquery.steps.min.js' %}"></script>
+      
+      <script src="{% static 'plugins/jquery-validation/dist/jquery.validate.min.js' %}"></script>
+
+      <script src="{% static 'assets/pages/jquery.wizard-init.js' %}"></script>
+
+      <script src="{% static 'plugins/bootstrap-floating-labels/floating.labels.min.js' %}"></script>
+
+
+
+
+
+<!-- Datatables-->
+<!-- Required datatable js-->
+    <script src="{% static 'plugins/datatables/jquery.dataTables.min.js' %}"></script>
+    <script src="{% static 'plugins/datatables/dataTables.bootstrap4.min.js' %}"></script>
+<!-- Buttons examples -->
+    <script src="{% static 'plugins/datatables/dataTables.buttons.min.js' %}"></script>
+    <script src="{% static 'plugins/datatables/buttons.bootstrap4.min.js' %}"></script>
+        
+    <script src="{% static 'plugins/datatables/jszip.min.js' %}"></script>
+    <script src="{% static 'plugins/datatables/pdfmake.min.js' %}"></script>
+    <script src="{% static 'plugins/datatables/vfs_fonts.js' %}"></script>
+    <script src="{% static 'plugins/datatables/buttons.html5.min.js' %}"></script>
+    <script src="{% static 'plugins/datatables/buttons.print.min.js' %}"></script>
+    <script src="{% static 'plugins/datatables/dataTables.fixedHeader.min.js' %}"></script>
+    <script src="{% static 'plugins/datatables/dataTables.keyTable.min.js' %}"></script>
+    <script src="{% static 'plugins/datatables/dataTables.scroller.min.js' %}"></script>
+
+<!-- Responsive examples -->
+    <script src="{% static 'plugins/datatables/dataTables.responsive.min.js' %}"></script>
+    <script src="{% static 'plugins/datatables/responsive.bootstrap4.min.js' %}"></script>
+
+
+
+
+    <script src="{% static 'assets/js/jquery.app.js' %}"></script>
+
+
+
+
+
+
+
+
+<script>
+    $(document).ready(function() {
+        $('#datatable').dataTable();
+        $('#datatable-keytable').DataTable( { keys: true } );
+        $('#datatable-responsive').DataTable();
+        
+        $('#datatable-scroller').DataTable( { 
+            ajax: "../plugins/datatables/json/scroller-demo.json", 
+            deferRender: true, 
+            scrollY: 380, 
+            scrollCollapse: true, 
+            scroller: true 
+        });
+        
+        var table = $('#datatable-fixed-header').DataTable({ fixedHeader: true });
+    });
+    
+    TableManageButtons.init();
+</script>

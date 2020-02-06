@@ -1,0 +1,412 @@
+{% load static %}
+<div class="card card-border">
+<div class="card-header"> 
+    <h3 class="card-title">Data Pribadi</h3> 
+</div>
+<div class="card-body">
+
+
+<div class="row">
+    <div class="col-sm-8">
+
+        <div class="form-group row">
+            <div class="col-sm-0"></div>
+            <label class="col-sm-3 control-label" for="alamat"> Alamat Lengkap</label>
+            <div class="col-sm-9">
+                <textarea  type="text" class="form-control" id="alamat" name="alamat" row="2" data-placeholder=""></textarea>   
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-sm-0"></div>
+            <label class="col-sm-3 control-label" for="domisili"> Alamat Domisili</label>
+            <div class="col-sm-9">
+                <textarea  type="text" class="form-control" id="domisili" name="domisili" row="2" data-placeholder=""></textarea>   
+            </div>
+        </div>      
+
+        <div class="form-group row">
+            <div class="col-sm-0"></div>
+            <label class="col-sm-3 control-label" for="notelp">No Telp/WA</label>
+            <div class="col-sm-9">
+                <input  type="text" class="form-control" id="notelp" name="notelp" data-placeholder="">  
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-sm-0"></div>
+            <label class="col-sm-3 control-label" for="telegram">Telegram</label>
+            <div class="col-sm-9">
+                <input  type="text" class="form-control" id="telegram" name="telegram" data-placeholder="">  
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-sm-0"></div>
+            <label class="col-sm-3 control-label" for="email">Email</label>
+            <div class="col-sm-9">
+    
+                <input  type="email" class="form-control" id="email" name="email" data-placeholder="">  
+            </div>
+        </div>            
+        
+        <div class="form-group row">
+            <div class="col-sm-0"></div>
+            <label class="col-sm-3 control-label" for="path">foto</label>
+            <div class="col-sm-9">
+                
+                       <div class="input-group m-t-10">
+                        <input type="text" id="path" name="path" class="form-control" placeholder="">
+                        <input type="hidden" id="ipath" name="ipath">
+                        <span class="input-group-append">
+                            <button type="button" class="btn waves-effect waves-light btn-primary"  onclick="javascript:buka()">
+                                <i class="fa fa-folder-open-o"></i>
+                            </button>
+                            <button type="button" id="myvideo" class="btn waves-effect waves-light btn-info"  onclick="javascript:bukaVideo()">
+                                <i class="fa fa-camera"></i>
+                            </button>
+                        </span>
+                    </div>
+
+                    <script type="text/javascript">
+                        function buka(){
+                            $('#foto').click();
+                        }
+                    </script>
+
+                     <script type="text/javascript">
+                        function ambil(){
+                            var isi = document.getElementById('foto').value;
+                            var foto = document.getElementById('foto_img');
+                            document.getElementById('path').value = isi;
+                            var img = Image();
+                            img.src = isi;
+                            foto.src = img;         
+
+                        }
+                    </script>
+
+                <input  type="file" class="form-control" id="foto" name="foto" accept="image/x-png,image/jpeg" hidden="true" onchange="javascript:ambil()">  
+            </div>
+        </div>          
+
+</div><!-- col-sm-8 -->
+<div class="col-sm-4">
+    <div class="form-group row">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-10">
+
+            <div class="card">
+            <div class="card-body">
+
+
+                <img alt="my foto" src="/media/users/man.png" id="foto_img" name="foto_img" height="100%" width="100%"  style="background: black;" />
+
+                <video id="video" width="400" height="300" loop muted class="ada" style="display: none;z-index: 10;"></video>
+
+                <div id="buka" class="row" style="display: none;">
+                    <div class="col-sm-12">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <canvas id="canvas" width="400" height="300" style="z-index: 1000; background: black; "></canvas>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-1">
+                                <button type="button" id="play" class="btn-primary" onclick="javascript:playVideo();"><i class="fa fa-play"></i></button>
+                                <button type="button" id="pause" class="btn-primary"><i class="fa fa-pause" onclick="javascript:pauseVideo();"></i></button>
+                            </div>
+                            <div class="col-sm-1">
+                                <button type="button" id="stop" class="btn-danger" onclick="javascript:tutupVideo()"><i class="fa fa-stop"></i></button>
+                            </div>
+                            <div class="col-sm-1">
+                                <button type="button" id="simpanVideo" class="btn-danger" onclick="javascript:simpanCanvas()"><i class="fa fa-save"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+            </div>
+        <div class="col-sm-1"></div>
+    </div>         
+</div>
+
+</div>
+
+          
+</div>
+</div>           
+    
+
+
+
+ 
+  <script type="text/javascript">
+    
+
+
+</script>
+<script type="text/javascript">
+    var face;
+    
+
+    function simpanCanvas(){
+            var vnip = document.getElementById("nip").value;
+        
+            if(vnip.length > 0){
+
+            var image_canvas = document.getElementById("canvas");
+            var video = document.getElementById('video');
+            var context = image_canvas.getContext("2d");
+            image_canvas.width = video.width;
+            image_canvas.height = video.height;
+            //
+            context.drawImage(video,face.x - 10,face.y - 60, face.width * 5.0, face.height * 6.1 ,  0, 0, image_canvas.width, image_canvas.height);
+            var image = new Image();
+
+            image.src = image_canvas.toDataURL("image/png");
+      
+            var url = '/savephoto';
+            var dataku = {'ext': 'png', 'gambar': image.src, 'nip' : vnip};
+            
+            $.ajax({
+                url: url,
+                data : dataku,
+                dataType:'json',
+                type: 'post',
+                success: function(data){
+                    let h = new Object();
+                    h = data;
+                    var ada = document.getElementById('foto_img');
+                    buka = document.getElementById('buka');
+                    p = document.getElementById('ipath');
+                    p.value = h.pk; 
+                    ada.src = image.src;
+                    swal({   
+                     title: "Berhasil",   
+                     text: h.status,   
+                     type: "warning",   
+                     showCancelButton: true,   
+                     confirmButtonColor: "#DD6B55",    
+                    });
+                    tutupVideo();
+                    
+                 },
+    
+                 error:function(data){
+                    let h = new Object();
+                    h = data;
+                    swal({   
+                     title: "Data Tidak Lengkap?",   
+                     text: data,   
+                     type: "warning",   
+                     showCancelButton: true,   
+                     confirmButtonColor: "#DD6B55",    
+                    });
+                  
+                 }
+             });
+             
+
+        // }else{
+        //     alert("ok");
+            
+        // }
+        }else{
+            swal({   
+                     title: "Penting !!!",   
+                     text: "Tolong untuk mengisi Nomer Karyawan untuk proses pengambilan foto langsung",   
+                     type: "warning",   
+                     showCancelButton: true,   
+                     confirmButtonColor: "#DD6B55",    
+                    });
+        }
+ 
+    }
+  </script>
+
+  <script type="text/javascript">
+    // Put event listeners into place
+    var video = document.getElementById("video");
+    
+    
+    
+    function tutupVideo(){
+      var tutup = document.getElementById('foto_img');
+      var buka = document.getElementById('buka');
+      var tombol = document.getElementById('myvideo');
+      buka.style.display = "none";
+      tutup.style.display = "block";
+      video.stop();
+    }
+
+    function bukaVideo(){
+        var tutup = document.getElementById('foto_img');
+        var buka = document.getElementById('buka');
+        var tombol = document.getElementById('myvideo');
+        tutup.style.display = "none";
+        buka.style.display = "block";
+        var ply = document.getElementById('play');
+        var pause = document.getElementById('pause');
+        ply.style.display = 'block';
+        pause.style.display = 'none';
+    }
+
+    function playVideo(){
+        var ply = document.getElementById('play');
+        var pause = document.getElementById('pause');
+        ply.style.display = 'none';
+        pause.style.display = 'block';
+        video.play();   
+    }
+
+    function pauseVideo(){
+        alert('pause');
+        var ply = document.getElementById('play');
+        var pause = document.getElementById('pause');
+        ply.style.display = 'block';
+        pause.style.display = 'none';
+        video.pause();   
+    }
+
+  </script>
+
+
+  <script >
+        window.URL || (window.URL = window.webkitURL || window.msURL || window.oURL);
+
+        //normalize navigator.getUserMedia
+        navigator.getUserMedia || (navigator.getUserMedia = navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia);
+
+        if (typeof navigator.getUserMedia === "function") {
+
+        (function() {
+        
+            var video = document.querySelector('video'),
+                content = document.querySelector('.transforming-content'),
+                canvas = document.querySelector('canvas'),
+                context = canvas.getContext('2d'),
+                gambar = document.querySelector('foto_img'),
+                mask = new Image(),
+                originalFace,
+            
+                // Quick hack for two experiment types
+                SCALE_EXPERIMENT = 'scale',
+                MASK_EXPERIMENT = 'mask',
+                experimentType =  MASK_EXPERIMENT,
+
+                ///mask/.test(canvas.className) ? MASK_EXPERIMENT : SCALE_EXPERIMENT,
+
+                // toString for older gUM implementation, see comments on https://gist.github.com/f2ac64ed7fc467ccdfe3
+                gUMOptions = {video: true, toString: function(){ return "video"; }};
+
+                video.setAttribute('autoplay', true);
+                mask.src = "/media/images/mask.png";
+
+                context.fillStyle = "rgba(0, 0, 200, 0.5)";
+                navigator.getUserMedia(gUMOptions, handleWebcamStream, errorStartingStream);
+        
+                function handleWebcamStream(stream) {
+
+                    video.src = (window.URL && window.URL.createObjectURL) ? window.URL.createObjectURL(stream) : stream;
+                    processWebcamVideo();
+                }
+
+        function errorStartingStream() {
+            alert('Uh-oh, the webcam didn\'t start. Do you have a webcam? Did you give it permission? Refresh to try again.');
+        }
+
+        function processWebcamVideo() {
+
+            var startTime = +new Date(),
+                changed = false,
+                scaleFactor = 1,
+                faces;
+
+            context.drawImage(video, 0, 0, canvas.width, canvas.height);
+            faces = detectFaces();
+
+            if(experimentType === MASK_EXPERIMENT) {
+        //        alert('masl');
+                drawMasks(faces);
+            } else {
+          //    alert('ither mask');
+                highlightFaces(faces);
+
+                if(originalFace && faces.length > 0) {
+                    scaleContent(faces[0]);
+                }
+
+                if( ! originalFace && faces.length === 1) {
+                    originalFace = faces[0];
+                }
+            }
+
+            setTimeout(processWebcamVideo, 50);
+        }
+
+        function detectFaces() {
+            return ccv.detect_objects({canvas : (ccv.pre(canvas)), cascade: cascade, interval: 2, min_neighbors: 1});
+        }
+
+        // Draw found faces onto the canvas
+        function highlightFaces(faces) {
+            if(!faces) {
+                return false;
+            }
+
+            for (var i = 0; i < faces.length; i++) {
+                face = faces[i];
+                context.fillRect(face.x, face.y, face.width, face.height);
+            }
+        }
+
+        function drawMasks(faces) {
+            if(!faces) {
+                return false;
+            }
+
+            for (var i = 0; i < faces.length; i++) {
+                face = faces[i];
+                context.lineJoin = 'round';
+                context.lineWidth = '5';
+                context.strokeStyle = 'goldenrod';
+                context.strokeRect(face.x - 40, face.y - 60, face.width * 1.9, face.height * 2.1);
+                
+                // context2.drawImage(canvas, face.x - 40, face.y - 60, face.width * 1.9, face.height * 2.1);
+                
+                //canvas2.src = img.src;
+                //     // canvas2 = context.drawImage(canvas, face.x - 40, face.y - 60, face.width * 1.9, face.height * 2.1);
+                // de = document.getElementById('csimpan');
+                // de.src = context.toDataURL("image/png");
+                // //context.drawImage(mask, face.x * 0.9, face.y * 0.9, face.width * 1.3, face.height * 1.3);
+            }
+
+        }
+
+
+        function saveImage(){
+            context.drawImage(canvas, face.x - 40, face.y - 60, face.width * 1.9, face.height * 2.1);
+        }
+
+        function scaleContent(newFace) {
+            var scaleFactor = originalFace.height / newFace.height;
+            content.style.setProperty('-o-transform', 'scale('+scaleFactor+')');
+            content.style.setProperty('-webkit-transform', 'scale('+scaleFactor+')');
+        }
+
+        /* Face object example:
+        {
+            confidence: 0.16752329000000035,
+            height: 48.500000000000014,
+            neighbors: 1,
+            width: 48.500000000000014,
+            x: 80.50000000000001,
+            y: 104.50000000000003
+        }
+        */
+
+    })();
+}
+    </script>

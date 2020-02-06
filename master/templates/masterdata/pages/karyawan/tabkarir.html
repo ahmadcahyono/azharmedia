@@ -1,0 +1,133 @@
+{% load static %}
+{% load static %}
+
+<div class="card  card-primary"> 
+<!-- <div class="card-header">
+    <h3 class="card-title text-primary">Pendidikan Formal Terakhir</h3>
+</div> -->
+
+<div class="card-body" style="width: 100%;">            
+ 
+<div class="form-group row">
+    <div class="col-sm-0"></div>
+    <label class="col-sm-3 control-label" for="jenjang">Pendidikan Terakhir</label>
+    <div class="col-sm-9">
+        <div class="row">
+            <div class="col-sm-4">
+                <select name="jenjang" id="jenjang" class="form-control">
+                    <option value="">Jenjang</option>
+                    <option value="1">SD</option>
+                    <option value="2">SMP</option>
+                    <option value="3">SMA</option>
+                    <option value="4">Diploma 1</option>
+                    <option value="5">Diploma 2</option>
+                    <option value="6">Diploma 3</option>
+                    <option value="7">Diploma 4</option>
+                    <option value="8">Strata 1</option>
+                    <option value="9">Strata 2</option>
+                    <option value="10">Strata 3</option>
+                </select>        
+            </div>
+        
+            <div class="col-sm-6">        
+                <input type="text" class="form-control" id="almamater" name="almamater" placeholder="Nama Lembaga Pendidikan" />
+            </div>
+            <div class="col-sm-2">        
+                <select data-toggle="tooltip" title="Tahun Lulus Pendidikan" class="form-control" id="thnlulus" name="lulus">
+                    {% for thn in tahun %}
+                        {% if thn == sekarang %}
+                            <option value="{{thn}}" selected>{{thn}}</option>
+                        {% else %}
+                            <option value="{{thn}}">{{thn}}</option>
+                        {% endif %}
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+    </div>
+</div>
+</div> <!-- card body-->
+</div> <!-- card -->
+
+<div class="row">
+    <div class="col-sm-12">
+<!-- <p><b>Pendidikan no formal</b></p>
+ -->
+<div class="card card-border card-default">
+<div class="card-header">
+    <h3 class="card-title text-primary">Pendidikan Non Formal</h3>
+</div>
+
+<div class="card-body">             
+<div class="form-group row">
+<div class="col-sm-12">    
+    <table id="tbnonformal" class="table table-bordered" style="width: 100%;">
+        <thead>
+            <tr>
+                <th>Jenjang</th>
+                <th>Nama Lembaga</th>
+                <th>Tahun Kelulusan</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <select name="nonformal" id="nonformal" class="form-control">
+                        <option value="1">Setara D1</option>
+                        <option value="2">Setar D2</option>
+                        <option value="3">Setara D3</option>
+                        <option value="4">Diklat</option>
+                        <option value="5">Kursus</option>
+                        <option value="6">Pelatihan</option>
+                    </select>
+                </td>
+                <td><input type="text" class="form-control" id="lembaga" name="lembaga[ ]" /></td>
+                <td>
+                    <select class="form-control" id="thnberhasil" name="berhasil[ ]">
+                        {% for thn in tahun %}
+                            {% if thn == sekarang %}
+                                <option value="{{thn}}" selected>{{thn}}</option>
+                            {% else %}
+                                <option value="{{thn}}">{{thn}}</option>
+                            {% endif %}
+                        {% endfor %}
+                    </select>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <select name="nonformal" id="nonformal" class="form-control">
+                        <option value="4">Diklat</option>
+                        <option value="5">Kursus</option>
+                        <option value="6">Pelatihan</option>
+                        <option value="1">Setara D1</option>
+                        <option value="2">Setar D2</option>
+                        <option value="3">Setara D3</option>
+                    </select>
+                </td>
+                <td><input type="text" class="form-control" id="lembaga" name="lembaga[ ]" /></td>
+                <td>
+                    <select class="form-control" id="thnberhasil" name="berhasil[ ]">
+                        {% for thn in tahun %}
+                            {% if thn == sekarang %}
+                                <option value="{{thn}}" selected>{{thn}}</option>
+                            {% else %}
+                                <option value="{{thn}}">{{thn}}</option>
+                            {% endif %}
+                        {% endfor %}
+                    </select>
+                </td>
+            </tr>
+
+
+        </tbody>
+    </table>
+</div>
+</div>
+</div>
+</div>
+
+
+</div><!-- body -->
+</div><!-- card informal -->

@@ -1,0 +1,29 @@
+{% load static %}
+                    <div class="form-group row">
+                        <label class="col-sm-5 control-label">File Sumber</label>      
+                        <div class="col-sm-7">
+                            <div class="input-group">
+                                <input type="text" id="myfile" name="myfile" class="form-control" placeholder="">
+                                <span class="input-group-append">
+                                    <button type="button" class="btn waves-effect waves-light btn-success" onclick="javascript:buka()"><i class="fa fa-folder-open-o"></i></button>
+                    
+
+                                    <script type="text/javascript">
+                                        function buka(){
+                                            $('#sembunyi').click();
+                                        }
+                                    </script>
+                                </span>
+                            </div>
+                        </div>
+
+                        <input onchange="javascript:ambil()" type="file"  title="Upload excel file"
+                        name="excel_file" id="sembunyi"          style="border: 1px solid black; padding: 5px;" hidden="true" required="required">
+            
+                        <script type="text/javascript">
+                            function ambil(){
+                                var isi = document.getElementById('sembunyi').value;
+                                document.getElementById('myfile').value = isi;
+                            }
+                        </script>
+                    </div>

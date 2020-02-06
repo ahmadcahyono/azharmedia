@@ -1,0 +1,141 @@
+{% extends 'excel/index.html' %}
+{% load static %}
+{%block content%}
+
+<div class="row"> 
+    <div class="col-sm-7">
+       {% include 'masterdata/pages/karyawan/daftar_karyawan.html' %}
+    </div>
+            
+    <div class="col col-sm-5">
+
+        <form id="basika" class="basika" enctype="multipart/form-data"  method="POST">
+        <!-- action="#" -->
+            
+         {% csrf_token %}
+
+            <div class="row"> 
+                <div class="col-xl-12">
+                    <div class="card">
+                        <div class="card-body">
+
+                            <ul class="nav nav-pills nav-justified" role="tablist" style="width: 100%;">
+                                <li class="nav-item">
+                                    <a class="nav-link active" id="home-tab-1" data-toggle="tab" href="#home-1" role="tab" aria-controls="home-1" aria-selected="false" data-original-title="Data Pribadi">
+                                        <span class="d-block d-sm-block"><i class="fa fa-home"></i></span>
+                                        <!-- <span class="d-none d-sm-block">Biodata</span> -->
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="cp-tab-1" data-toggle="tab" href="#cp-1" role="tab" aria-controls="cp-1" aria-selected="false" data-original-title="Contact Person">
+                                        <span class="d-block d-sm-block"><i class="fa  fa-file-text-o"></i></span>
+                                        <!-- <span class="d-none d-sm-block">Kontak</span> -->
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="profile-tab-1" data-toggle="tab" href="#profile-1" role="tab" aria-controls="profile-1" aria-selected="true" data-original-title="Pendidikan">
+                                        <span class="d-block d-sm-block"><i class="fa fa-graduation-cap"></i></span>
+                                        <!-- <span class="d-none d-sm-block">Pendidikan</span> -->
+                                    </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link" id="nonformal-tab-1" data-toggle="tab" href="#nonformal-1" role="tab" aria-controls="nonformal-1" aria-selected="true" data-original-title="Pendidikan Non Formal">
+                                        <span class="d-block d-sm-block"><i class="fa fa-certificate"></i></span>
+                                        <!-- <span class="d-none d-sm-block">Pendidikan</span> -->
+                                    </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link" id="message-tab-1" data-toggle="tab" href="#message-1" role="tab" aria-controls="message-1" aria-selected="false" data-original-title="Skill (Ketrampilan)">
+                                        <span class="d-block d-sm-block"><i class="fa fa-building-o"></i></span>
+                                        <!-- <span class="d-none d-sm-block">Ketrampilan</span> -->
+                                    </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link" id="tabexp-tab-1" data-toggle="tab" href="#tabexp" role="tab" aria-controls="tabext" aria-selected="false" data-original-title="Pengalaman Kerja">
+                                        <span class="d-block d-sm-block"><i class="fa   fa-history"></i></span>
+                                        <!-- <span class="d-none d-sm-block">Pengalaman</span> -->
+                                    </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link" id="karir-tab-1" data-toggle="tab" href="#karir-1" role="tab" aria-controls="karir-1" aria-selected="false" data-original-title="Karir">
+                                        <span class="d-block d-sm-block"><i class="fa  fa-line-chart"></i></span>
+                                        <!-- <span class="d-none d-sm-block">Karir</span> -->
+                                    </a>
+                                </li>    
+
+                          
+                                <li class="nav-item">
+                                    <a class="nav-link" id="keluarga-tab-1" data-toggle="tab" href="#keluarga-1" role="tab" aria-controls="keluarga-1" aria-selected="false"
+                                     data-original-title="Keluarga"    
+                                    >
+                                        <span class="d-block d-sm-block"><i class="fa fa- fa-sitemap"></i></span>
+                                        <!-- <span class="d-none d-sm-block">Keluarga</span> -->
+                                    </a>
+                                </li>
+                            </ul>
+                     
+                        <br>
+
+                        <div class="tab-content">
+                            <div class="tab-pane show active" id="home-1" role="tabpanel" aria-labelledby="home-tab-1">
+                                {% include 'masterdata/pages/karyawan/datadiri.html' %}
+                            </div>
+                            <div class="tab-pane" id="cp-1" role="tabpanel" aria-labelledby="cp-tab-1">
+                                {% include 'masterdata/pages/karyawan/contactperson.html' %}
+                            </div>
+                            <div class="tab-pane" id="profile-1" role="tabpanel" aria-labelledby="profile-tab-1">
+                                {% include 'masterdata/pages/karyawan/pendidikan.html' %}
+                            </div>
+                            <div class="tab-pane" id="nonformal-1" role="tabpanel" aria-labelledby="nonformal-tab-1">
+                                {% include 'masterdata/pages/karyawan/nonformal.html' %}
+                            </div>
+
+                            <div class="tab-pane" id="message-1" role="tabpanel" aria-labelledby="message-tab-1">
+                                {% include 'masterdata/pages/karyawan/keahlian.html' %}
+                            </div>
+
+                            <div class="tab-pane" id="tabexp" role="tabpanel" aria-labelledby="tabexp-tab-1">
+                                    {% include 'masterdata/pages/karyawan/pengalaman.html' %}
+                            </div>
+                        
+                            <div class="tab-pane" id="karir-1" role="tabpanel" aria-labelledby="karir-tab-1">
+                                    {% include 'masterdata/pages/karyawan/karir.html' %}
+                            </div>
+
+                            <div class="tab-pane" id="keluarga-1" role="tabpanel" aria-labelledby="keluarga-tab-1">
+                                    {% include 'masterdata/pages/karyawan/keluarga.html' %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+        
+                <button type="submit" class="btn btn-primary waves-effect waves-light float-right" name="submit">Simpan</button>
+       </div>
+                </div>
+
+            </div>
+
+                
+</div>
+
+
+        </div>
+
+        </form>
+</div>
+</div>
+
+
+
+
+
+
+
+
+{% endblock %}
+{%block footer %}  
+{% endblock %}

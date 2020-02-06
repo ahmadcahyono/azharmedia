@@ -1,0 +1,159 @@
+{% load static %}
+
+<div class="row">
+    <div class="col-sm-12">
+
+                    <div class="form-group row">
+                        <div class="col-sm-0"></div>
+                        <label class="col-sm-3 control-label" for="nik"> NIK</label>
+                        <div class="col-sm-5">
+                            <input class="form-control" id="nik" name="nik" data-placeholder="">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-sm-0"></div>
+                        <label class="col-sm-3 control-label" for="fullname"> Nama Lengkap</label>
+                        <div class="col-sm-9">
+                            <input class="form-control" id="fullname" name="fullname" data-placeholder="">
+                        </div>
+                    </div>
+
+
+                    <div class="form-group row">
+                        <div class="col-sm-0"></div>
+                        <label class="col-sm-3 control-label" for="aliasname"> Nama Panggilan</label>
+                        <div class="col-sm-9">
+                            <input class="form-control" id="aliasname" name="aliasname" data-placeholder="Nama panggilan di sehari-hari">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group row">
+                        <div class="col-sm-0"></div>
+                        <label class="col-sm-3 control-label" for="tempat"> Tempat dan Tanggal Lahir</label>
+                        <div class="col-sm-9 form-inline">
+                            
+                            <div class="form-group">
+                                        <label class="sr-only" for="tplahir">Tempat Lahir</label>
+                                        <input type="text" class="form-control sm" name="tplahir" id="tplahir" list="kab"  placeholder="Tempat lahir">
+                                        <datalist id="kab">
+                                            {% for k in kab %}
+                                                <option>{{k.nama}}</option>
+                                            {% endfor%}
+                                        </datalist>
+
+                                    </div>
+
+                                    <!-- <div class="form-group m-l-10">
+                                        <label class="sr-only" for="datepicker">Tanggal lahir</label>
+                                        <input type="text" class="form-control" id="datepicker" Placeholder="mm-dd-yyyy">
+                                    </div> -->
+                                    &nbsp;&nbsp;&nbsp;
+                                    <B>/</B>
+        
+                                    <div class="form-group m-l-10">
+                                        <label class="sr-only" for="tanggal">Tanggal lahir</label>
+                                        <select name="tanggal" class="form-control" id="tanggal" text="{{sekarang}}" >
+                                            {% for i in tanggal %}
+                                                {% if i == tgl %}
+                                                    <option value="{{i}}" selected>{{i}}</option>
+
+                                                {% else %}
+                                                    <option value="{{i}}">{{i}}</option>
+                                                {% endif %}
+                                                
+                                            {% endfor %}
+                                    </select>
+                                    </div>
+
+                                    <div class="form-group m-l-10">
+                                        <label class="sr-only" for="datepicker">Bulan lahir</label>
+                                        <select name="bulan" class="form-control" id="bulan" >
+                                            {% for key, value in bulan.items %}
+                                                {% if value == nama_bln %}
+                                                    <option value="{{key}}" selected>{{value}}</option>
+                                                {% else %}
+                                                    <option value="{{key}}">{{value}}</option>
+                                                {% endif %}
+                                                }
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group m-l-10">
+                                        <label class="sr-only" for="tahun">Tahun</label>
+                                        <select name="tahun" class="form-control" id="tahun" >
+                                            {% for i in tahun %}
+                                                {% if i == sekarang %}
+                                                    <option value="{{i}}" selected>{{i}}</option>
+                                                {% else %}
+                                                    <option value="{{i}}">{{i}}</option>
+                                                {%endif %}
+
+                                                
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-sm-0"></div>
+                        <label class="col-sm-3 control-label" for="jenis"> JenisKelamin</label>
+                        <div class="col-sm-3">
+                            <select class="form-control" id="jenis" name="jenis" data-placeholder="">
+                                <option value="1">Laki-laki</option>
+                                <option value="2">Perempuan</option>  
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group row">
+                        <div class="col-sm-0"></div>
+                        <label class="col-sm-3 control-label" for="status">Status</label>
+                        <div class="col-sm-5">
+                            <select class="form-control" id="status" name="status" data-placeholder="">
+                                <option value="1">Lajang</option>
+                                <option value="2">Menikah</option>
+                                <option value="3">Duda/Janda</option>  
+                            </select>
+                        </div>
+                    </div>
+
+
+
+                    <div class="form-group row">
+                        <div class="col-sm-0"></div>
+                        <label class="col-sm-3 control-label" for="alamat"> Alamat Lengkap</label>
+                        <div class="col-sm-9">
+                            <textarea  type="text" class="form-control" id="alamat" name="alamat" row="2" data-placeholder=""></textarea>   
+                        </div>
+                    </div>    
+                    
+
+                    <div class="form-group row">
+                        <div class="col-sm-0"></div>
+                        <label class="col-sm-3 control-label" for="notelp">No Telp/WA</label>
+                        <div class="col-sm-9">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <input  type="text" class="form-control" id="notelp" name="notelp" data-placeholder="">  
+                                </div>
+                                <div class="col-sm-8">
+                                    <div class="form-group row">
+                                        <div class="col-sm-0"></div>
+                                        <label class="col-sm-3 control-label" for="email">Email</label>
+                                        <div class="col-sm-9">
+                                            <input  type="email" class="form-control" id="email" name="email" data-placeholder="">  
+                                         </div>
+                                    </div>            
+                                </div>
+                         </div>
+                    </div>
+        
+</div>
+</div>           
+            
+<!-- https://youtu.be/A0GhWXa2Oq -->
+
+                    <!-- https://www.youtube.com/playlist?list=PLUuYlj8dcEXbhZuRy_B4Rm3XWVYEL12pM -->

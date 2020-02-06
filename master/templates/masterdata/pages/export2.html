@@ -1,0 +1,133 @@
+{% extends 'excel/index.html' %}
+{% load static %}
+{%block content%}
+<div class="card card-border card-primary">
+    <div class="card-header"> 
+        <h3 class="card-title">Basic Form Wizard</h3> 
+    </div> 
+    
+    <div class="card-body"> 
+        <form id="basic-form" class="basicForm" enctype="multipart/form-data" action="#" method="POST">
+        {% csrf_token %}
+        <div>
+            <h3>Jenis Laporan</h3>
+                <section>
+                    <!-- tab 1 -->
+                    <div class="form-group row">
+                        <div class="col-sm-0"></div>
+                        <label class="col-sm-5 control-label" for="MachineName"> <a href="#">Jenis Laporan </a></label>
+                        <div class="col-sm-7">
+                            <select class="form-control" id="ReportType" name="ReportType" data-placeholder="Pilih Laporan...">
+                                <option value="#">&nbsp;</option>
+                                <option value="FM">Laporan Bank</option>
+                            </select>
+                        </div>
+                        <!-- end tab1 -->
+                    </div>                                         
+                </section>
+
+            <h3>Setup</h3>
+                <section>
+                    <!-- tab 2 -->
+                    <div class="form-group row">
+                        <div class="col-sm-0"></div>
+                        <label class="col-sm-5 control-label" for="MachineName">Mesin</label>
+                        <div class="col-sm-7">
+                            <select class="form-control" id="MachineName" name="MachineName"  data-placeholder="Pilih Mesin...">
+                                <option value="#">&nbsp;</option>
+                                <option value="FM">Flash Machine (FM)</option>
+                                <option value="IRS">Integrate (IRS)</option>
+                                <option value="RGB">RGB Spektrum</option>
+                            </select>
+                        </div>
+                    </div>
+        
+                    <div class="form-group row">
+                        <div class="col-sm-0"></div>
+                        <label class="col-sm-5 control-label" for="HeaderPos">Header</label>
+                        <div class="col-sm-7">
+                            <input id="HeaderPos" name="HeaderPos" type="number" class="form-control">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-sm-0"></div>
+                        <label class="col-sm-5 control-label" for="confirm">Jumlah Kolom</label>
+                        <div class="col-sm-7">
+                            <input id="nColumn" name="nColumn" type="number" class="form-control">
+                        </div>
+                    </div>
+                    <!-- end tab2 -->
+                    
+                </section>
+            <h3>File Sumber</h3>
+                <section>
+                    <!-- tab 3 -->
+                    <div class="form-group row">
+                        <label class="col-sm-5 control-label">File Sumber</label>      
+                        <div class="col-sm-7">
+                            <div class="input-group">
+                                <input type="text" id="myfile" name="myfile" class="form-control" placeholder="">
+                                <span class="input-group-append">
+                                    <button type="button" class="btn waves-effect waves-light btn-success" onclick="javascript:buka()"><i class="fa fa-folder-open-o"></i></button>
+                    
+
+                                    <script type="text/javascript">
+                                        function buka(){
+                                            $('#sembunyi').click();
+                                        }
+                                    </script>
+                                </span>
+                            </div>
+                        </div>
+
+                        <input onchange="javascript:ambil()" type="file"  title="Upload excel file"
+                        name="excel_file" id="sembunyi"          style="border: 1px solid black; padding: 5px;" hidden="true" required="required">
+            
+                        <script type="text/javascript">
+                            function ambil(){
+                                var isi = document.getElementById('sembunyi').value;
+                                document.getElementById('myfile').value = isi;
+                            }
+                        </script>
+                    </div>
+                    <!-- end tab3 -->
+                    
+                </section>
+            <h3>Penyelesaian</h3>
+                 <section>
+                    <!-- tab 4 -->
+                    <div class="form-group row">
+                        <div class="col-sm-12">
+                        <div class="checkbox checkbox-danger">
+                            <input id="checkbox" type="checkbox">
+                            <label for="checkbox">
+                                Check me out
+                            </label>
+                        </div>
+                    </div>
+                    </div>
+
+
+                    <div class="form-group row">
+                        <div class="col-sm-0"></div>
+                        <label class="col-sm-5 control-label" for="extens">Ekstensi File</label>
+                        <div class="col-sm-7">
+                            <select class="form-control" id="extens" name="extens">
+                                <option value="xlsx" selected="true">xlsx - Buku Kerja Excel 2007 - Excel 2010</option>
+
+                                <option value="xls">xls - Buku Kerja Excel 97- Excel 2003</option>
+                                
+                                <option value="csv">CSV - dibatasi koma</option>
+                                <option value="pdf">PDF</option>
+                            </select>
+                        </div>
+                    </div>
+                    <!-- end tab4 -->
+                    
+                 </section>
+        </form> 
+    </div>  <!-- End card-body -->
+</div> <!-- End card -->
+
+{% endblock %}

@@ -1,0 +1,49 @@
+<div class="form-group row">
+                        <div class="col-sm-0"></div>
+                        <label class="col-sm-3 control-label" for="tempat">Tanggal Lahir</label>
+                        <div class="col-sm-9 form-inline">
+                            
+                                    <div class="form-group m-l-10">
+                                        <label class="sr-only" for="tanggal">Tanggal lahir</label>
+                                        <select name="tanggal" class="form-control" id="tanggal" text="{{sekarang}}" >
+                                            {% for i in tanggal %}
+                                                {% if i == tgl %}
+                                                    <option value="{{i}}" selected>{{i}}</option>
+
+                                                {% else %}
+                                                    <option value="{{i}}">{{i}}</option>
+                                                {% endif %}
+                                                
+                                            {% endfor %}
+                                    </select>
+                    </div>
+
+                                    <div class="form-group m-l-10">
+                                        <label class="sr-only" for="datepicker">Bulan lahir</label>
+                                        <select name="bulan" class="form-control" id="bulan" >
+                                            {% for key, value in bulan.items %}
+                                                {% if value == nama_bln %}
+                                                    <option value="{{key}}" selected>{{value}}</option>
+                                                {% else %}
+                                                    <option value="{{key}}">{{value}}</option>
+                                                {% endif %}
+                                                }
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group m-l-10">
+                                        <label class="sr-only" for="tahun">Tahun</label>
+                                        <select name="tahun" class="form-control" id="tahun" >
+                                            {% for i in tahun %}
+                                                {% if i == sekarang %}
+                                                    <option value="{{i}}" selected>{{i}}</option>
+                                                {% else %}
+                                                    <option value="{{i}}">{{i}}</option>
+                                                {%endif %}
+
+                                                
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+                        </div>

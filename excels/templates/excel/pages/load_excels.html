@@ -1,0 +1,105 @@
+{% extends 'excel/index.html'  %}
+{% load static  %}
+{% block content  %}
+
+<div class="row">
+	<div class="col-sm-12"> 
+
+
+<div class="card card-border card-primary">
+    <div class="card-header"> 
+        <h3 class="card-title">Basic Form Wizard</h3> 
+    </div> 
+    
+    <div class="card-body"> 
+        <form enctype="multipart/form-data" action="#" method="POST">
+        {% csrf_token %}
+
+   
+			<div class="form-group row">
+                <label class="col-sm-5 control-label">File Sumber</label>      
+                <div class="col-sm-7">
+            	    <div class="input-group">
+                        <input type="text" id="myfile" name="myfile" class="form-control" placeholder="">
+                	        <span class="input-group-append">
+                                <button type="button" class="btn waves-effect waves-light btn-success" onclick="javascript:buka()"><i class="fa fa-folder-open-o"></i></button>
+                                <script type="text/javascript">
+                                    function buka(){
+                                            $('#sembunyi').click();
+                                        }
+                                    </script>
+                                </span>
+                            </div>
+                        </div>
+
+                        <input onchange="javascript:ambil()" type="file"  title="Upload excel file"
+                        name="excel_file" id="sembunyi"          style="border: 1px solid black; padding: 5px;" hidden="true" required="required">
+            
+                        <script type="text/javascript">
+                            function ambil(){
+                                var isi = document.getElementById('sembunyi').value;
+                                document.getElementById('myfile').value = isi;
+                            }
+                        </script>
+                    </div>
+
+
+					<button type="submit" class="btn btn-info float-right">Submit</button>
+
+
+    	</form>
+   
+    </div>
+</div>
+
+</div>
+</div>
+
+
+<div class="row">
+	<div class="col-sm-4">
+		<div class="card">
+			<div class="card-body">
+				<p>Nama Sheet</p>	
+				{% for sheet in sheets %}
+				   
+                     {{sheet}}
+                {% endfor %}
+
+                <br>
+                                                                
+                <p>path&nbsp; =&nbsp; {{excel_path}}</p>
+                                
+                <br>
+                
+                <p>Jumlah Sheets &nbsp;=&nbsp;
+                                {{jml}}
+                </p>
+                <br>
+                <p>jumlah bari : &nbsp;    {{excel_info.rows}}&nbsp; baris & jumlah kolom : &nbsp;{{cols}}&nbsp; kolom<br>
+                                </p>
+
+			</div>
+		</div>
+	</div>
+	<div class="col-sm-8">
+		<div class="card card">
+    		<div class="card-body">
+    			<table class="table table-bordered table-striped">
+    				{% for row in excel_data %}
+                        <tr>
+                        {% for cell in row %}
+                            <td>{{ cell }}</td>
+                        {% endfor %}
+                        </tr>
+                    {% endfor %}
+
+    			</table>
+    		</div>
+    	</div>
+
+	</div>
+    
+</div>
+
+{% endblock %}

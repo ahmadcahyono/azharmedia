@@ -1,0 +1,67 @@
+<!-- Page-Title -->
+<div class="row">
+    <div class="col-lg-12">
+        <form>
+        {% csrf_token %}
+
+            <div class="row">
+                <div class="col col-lg-12">
+                    <div class="form-group">
+                        <label class="text-dark" for="nik">ID Suplier</label>
+                        <input type="text" class="form-control" id="idsuplier" placeholder="ID Suplier" name="idsuplier">
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col col-sm-12">
+                    <div class="form-group">
+                        <label class="text-dark"  for="namasuplier">Nama Suplier</label>
+                        <input type="text" class="form-control" id="namasuplier" placeholder="Nama Suplier" name="namasuplier">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col col-sm-12">
+                    <div class="form-group">
+                        <label class="text-dark"  for="alamatsuplier">Alamat Lengkap</label>
+                        <textarea type="text" class="form-control" name="alamatsuplier" placeholder="Alamat" row="2"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col col-sm-6">
+                    <div class="form-group">
+                        <label class="text-dark"  for="hpsuplier">Telp</label>
+                        <input type="text" class="form-control" id="hpsuplier" placeholder="Nomer HP" name="hpsuplier">
+                    </div>
+                </div>
+                <div class="col col-sm-6">
+                    <div class="form-group">
+                        <label class="text-dark"  for="emailsuplier">Email</label>
+                        <input type="email" class="form-control" id="emailsuplier" placeholder="Email" name="emailsuplier">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col col-sm-12">
+                    <div class="form-group">
+                        <label class="text-dark"  for="contactperson">Penanggung Jawab</label>
+                        <input type="text" class="form-control" name="contactperson" placeholder="Penanggung Jawab" />
+                    </div>
+                </div>
+            </div>
+
+                    
+            <button type="submit" class="btn btn-purple waves-effect waves-light float-right" style="text-align: right;">Submit</button>
+        </form>
+            <!-- </div> -->
+                <!-- end row 1 -->
+            <!-- </div> --><!--card body -->
+        <!-- </div> -->
+    </div>
+</div> <!-- End Row -->

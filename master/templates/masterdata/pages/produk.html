@@ -1,0 +1,25 @@
+{% extends 'masterdata/index.html' %}
+{% load static %}
+{%block content%}
+
+<div class="row"> 
+    <div class="col-xl-8">
+                {% include 'masterdata/pages/produk/daftar_produk.html' %}
+    </div>
+            
+    <div class="col-xl-4">
+        <div class="card card-fill">
+            <div class="card-header"><h3 class="card-header">
+                Produk Detail
+            </h3>
+        </div>
+        <div class="card-body">
+                {% include 'masterdata/pages/produk/detail_produk.html' %}
+
+            </div>
+        </div>
+</div>    
+
+{% endblock %}
+{%block footer %}  
+{% endblock %}
